@@ -1,47 +1,30 @@
 {
   "name": "catsbury",
-  "version": "0.1.0",
-  "proxy": "http://localhost:8080",
-  "private": true,
-  "dependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "express": "^5.1.0",
-    "nodemon": "^3.1.10",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.html",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm -prefix front-end run build",
+    "preinstall": "cd ./back-end && npm install",
+    "install": "cd ./front-end && npm install",
+    "start": "concurrently 'npm:backend' 'npm:frontend'",
+    "backend": "npm --prefix ./backend start",
+    "frontend": "npm --prefix ./frontend start",
+    "start:dev": "npx concurrently \"npm run start:dev --prefix ./backend\" \"npm start --prefix ./frontend\" ",
+    "test": "npm run test:frontend && npm run test:backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikdermit/Catsbury.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikdermit/Catsbury/issues"
+  },
+  "homepage": "https://github.com/mikdermit/Catsbury#readme"
 }
