@@ -1,23 +1,17 @@
-import React from "react";
-import Menu from "./Menu";
-import Routes from "./Routes";
+import React, { Fragment } from "react";
+import Routes from "./Router";
 
 import "./Layout.css";
 
-/**
- * Defines the main layout of the application.
- *
- * You will not need to make changes to this file.
- *
- * @returns {JSX.Element}
- */
 function Layout() {
     return (
-        <div className="container-fluid h-100 p-0">
-            <div className="container-fluid">
-                <Routes />
+        <Fragment>
+            <div className="container-fluid h-100 p-0">
+                <div className="container-fluid">
+                    <Routes />
+                </div>
             </div>
-        </div>
+        </Fragment>
     );
 }
 

@@ -1,23 +1,17 @@
 import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "../components/home/Home";
 import NotFound from "./NotFound";
-import Dashboard from "../dashboard/Dashboard";
-import CreateReservation from "../reservations/CreateReservation";
-import EditReservation from "../reservations/EditReservation";
-import SeatReservation from "../reservations/SeatReservation";
-import SearchReservation from "../reservations/SearchReservation";
-import CreateTable from "../tables/CreateTable";
 
-function Routes() {
+function Router() {
     // display error if any
     return (
-        <Switch>
+        <Routes>
+            <Route exact={true} path="/" element={<Navigate to={"/home"} />} />
             <Route exact={true} path="/">
-                <Redirect to={"/home"} />
+                <Navigate to="/home" />
             </Route>
-            <Route path="/home">
-                <Dashboard />
-            </Route>
+            <Route path="/home" element={<Home />} />
             {/*<Route path="/about">
                 <About />
             </Route>
@@ -41,8 +35,8 @@ function Routes() {
             </Route>
             */}
             <Route component={NotFound} />
-        </Switch>
+        </Routes>
     );
 }
 
-export default Routes;
+export default Router;
