@@ -8,13 +8,13 @@
   "devDependencies": {},
   "scripts": {
     "build": "npm -prefix front-end run build",
-    "preinstall": "cd ./back-end && npm install",
+    "preinstall": "cd ./backend && npm install",
     "install": "cd ./front-end && npm install",
-    "start": "concurrently 'npm:backend' 'npm:frontend'",
+    "start": "concurrently 'npm:backend' 'npm:front-end'",
     "backend": "npm --prefix ./backend start",
-    "frontend": "npm --prefix ./frontend start",
-    "start:dev": "npx concurrently \"npm run start:dev --prefix ./backend\" \"npm start --prefix ./frontend\" ",
-    "test": "npm run test:frontend && npm run test:backend"
+    "front-end": "npm --prefix ./front-end start",
+    "start:dev": "npx concurrently \"npm run start:dev --prefix ./backend\" \"npm start --prefix ./front-end\" ",
+    "test": "npm run test:front-end && npm run test:backend"
   },
   "repository": {
     "type": "git",
