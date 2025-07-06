@@ -18,7 +18,7 @@ function Routes() {
             <Route path="/home">
                 <Dashboard />
             </Route>
-            <Route path="/about">
+            {/*<Route path="/about">
                 <About />
             </Route>
             <Route path="/visit">
@@ -39,7 +39,7 @@ function Routes() {
             <Route path="/donate">
                 <Donate />
             </Route>
-            
+            */}
             <Route component={NotFound} />
         </Switch>
     );
