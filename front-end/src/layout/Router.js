@@ -8,29 +8,15 @@ function Router() {
     return (
         <Routes>
             <Route path='/' exact={true} element={<Navigate to="/home" replace={true} />} />
-            <Route path="/home" exact={true} element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path='*' element={<NotFound />} />
-            {/*<Route path="/about">
-                <About />
-            </Route>
-            <Route path="/visit">
-                <Visit />
-            </Route>
-            <Route path="/adopt">
-                <Adopt />
-            </Route>
-            <Route path="/adopt/application">
-                <AdoptAplication />
-            </Route>
-            <Route path="/foster/application">
-                <FosterApplication />
-            </Route>
-            <Route path="/shop">
-                <Shop />
-            </Route>
-            <Route path="/donate">
-                <Donate />
-            </Route>
+            {/*<Route path="/about" element={<About />} />
+            <Route path="/visit" element={<Visit />} >
+            <Route path="/adopt" element={<Adopt />} >
+            <Route path="/adopt/application" element={<AdoptApplication />} >
+            <Route path="/foster/application" element={<FosterApplication />} >
+            <Route path="/shop" element={<Shop />} >
+            <Route path="/donate" element={<Donate />} >
             */}
         </Routes>
     );
