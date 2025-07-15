@@ -1,5 +1,20 @@
-#about.h1 {
-    background-image: '../images/catsburypark.png';
-    background-size: cover;
+#about>div.header-image {
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/catsburypark.png");
     height: 500px;
+    background-size: cover;
+}
+
+#visit>div.header-image {
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/catsburypark.png");
+    height: 500px;
+    background-size: cover;
+}
+
+.accordion-body>p, #about>h4 {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
