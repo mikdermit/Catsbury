@@ -7,7 +7,7 @@ function Layout() {
     return (
         <div className="container-fluid h-100 p-0">
             <Header />
-            <div className="container-fluid">
+            <div className="container-fluid p-0">
                 <Router />
             </div>
             <Footer />
