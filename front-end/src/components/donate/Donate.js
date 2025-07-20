@@ -14,6 +14,24 @@ function Donate() {
             >
                 <h1>Donate</h1>
             </div>
+            <div class="container">
+                <div class="d-flex justify-content-around flex-wrap">
+                    
+                        <button type="button" class="btn btn-primary mt-4 w-25">
+                            <i class="fa-brands fa-paypal pe-3" />
+                            Paypal
+                        </button>
+                
+                    <button type="button" class="btn btn-warning mt-4 w-25">
+                        <i class="fa-brands fa-amazon pe-3"/>
+                        Amazon Wishlist
+                    </button>
+                    <button type="button" class="btn btn-primary mt-4 w-25">
+                        <i class="fa-solid fa-cat pe-3"/>
+                        Chewy Wishlist
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }
