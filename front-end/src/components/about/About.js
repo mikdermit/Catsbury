@@ -7,7 +7,7 @@ function About() {
             <div class="d-flex header-image">
                 <h1>About</h1>
             </div>
-            <h4>
+            <h4 class="p-4">
                 <b>
                     Together, we can create a community where every cat has a
                     chance for a better life.

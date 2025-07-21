@@ -19,6 +19,11 @@ function Header() {
                 <div class="collapse navbar-collapse " id="collapsibleNavbar">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
+                            <a class="nav-link" href="/home">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/about">
                                 About
                             </a>
@@ -43,6 +48,9 @@ function Header() {
                                 Donate
                             </a>
                         </li>
+                        <button type="button" class="btn btn-secondary ms-3">
+                        Sign In
+                    </button>
                     </ul>
                 </div>
             </div>
