@@ -1,5 +1,6 @@
 import React from "react";
 import catsburyPark from "../../images/catsburypark.png";
+import CatModal from "./CatModal";
 
 function Adopt() {
     return (
@@ -13,6 +14,9 @@ function Adopt() {
                 }}
             >
                 <h1>Adopt</h1>
+            </div>
+            <div class='container'>
+                <CatModal />
             </div>
         </div>
     );
