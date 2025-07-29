@@ -6,7 +6,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Create a connection pool (recommended for performance)
 const pool = mysql.createPool({
     host: 'localhostcatsbury-park-db.ccvse686q60s.us-east-1.rds.amazonaws.com',
     user: 'admin',
@@ -17,9 +16,22 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-// Example API endpoint to fetch data
-app.get('/api/data', (req, res) => {
-    pool.query('SELECT * FROM your_table', (err, results) => {
+// Get Cats
+app.get('/catsbury/cats', (req, res) => {
+    const q = 'SELECT * FROM cats';
+    pool.query(q, (err, results) => {
+        if (err) {
+            console.error('Error fetching data:', err);
+            res.status(500).json({ error: 'Failed to fetch data' });
+            return;
+        }
+        res.json(results);
+    });
+});
+// Create Cats
+app.post('/catsbury/cats', (req, res) => {
+    const { name, age, breed } = req.body;
+    pool.query('INSERT INTO cats (name, age, breed) VALUES (?, ?, ?)', [name, age, breed], (err, results) => {
         if (err) {
             console.error('Error fetching data:', err);
             res.status(500).json({ error: 'Failed to fetch data' });
