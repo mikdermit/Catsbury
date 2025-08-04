@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "dependencies": {
-  },
-  "devDependencies": {},
   "scripts": {
     "build": "npm -prefix front-end run build",
     "preinstall": "cd ./backend && npm install",

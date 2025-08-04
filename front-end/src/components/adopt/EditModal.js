@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getCats, updateCat } from "../../utils/api";
 
-function CatModal() {
-    return (
+function EditModal({ origCat }, setCats) {
+    const [cat, setCat] = useState({ ...origCat });
+    const [error, setError] = useState(null);
+
+    const handleChange = ({ target }) => {
+        setCat({ ...cat, [target.id]: target.value });
+    };
+
+    const handleEdit = async e => {
+            e.preventDefault();
+            const controller = new AbortController();
+            updateCat(cat, controller.signal)
+                .then(() => {
+                   getCats(controller.signal).then(setCats).catch(setError);
+                })
+                .catch(setError);
+            return () => controller.abort();
+        };
+
+    return !cat.name ? (
+        <p>Loading...</p>
+    ) : (
         <>
-            <button
-                type="button"
-                class="btn btn-primary"
+            <i
+                class="fa-solid fa-pencil"
                 data-bs-toggle="modal"
-                data-bs-target="#newModal"
-            >
-                New +
-            </button>
-            <div class="modal" id="newModal"tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content" style={{width: "600px"}}>
+                data-bs-target="#editModal"
+            />
+            <div class="modal" id="editModal" tabindex="-1" role="dialog">
+                <div
+                    class="modal-dialog modal-dialog-scrollable"
+                    role="document"
+                >
+                    <div class="modal-content" style={{ width: "600px" }}>
                         <div class="modal-header">
                             <h5 class="modal-title">Edit Cat</h5>
                             <button
@@ -34,11 +55,18 @@ function CatModal() {
                                             id="name"
                                             class="form-control"
                                             type="text"
+                                            value={cat.name}
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div class="form-group">
                                         <label for="sex">Sex</label>
-                                        <select id="sex" class="form-control">
+                                        <select
+                                            id="sex"
+                                            class="form-control"
+                                            value={cat.sex}
+                                            onChange={handleChange}
+                                        >
                                             <option>MN</option>
                                             <option>FS</option>
                                         </select>
@@ -49,6 +77,8 @@ function CatModal() {
                                             id="dob"
                                             class="form-control"
                                             type="date"
+                                            value={cat.dob}
+                                            onChange={handleChange}
                                         />
                                     </div>
                                 </div>
@@ -56,12 +86,17 @@ function CatModal() {
                                     <label for="description">
                                         Description (optional)
                                     </label>
-                                   <textarea class="form-control" id="description" placeholder="Description"></textarea>
+                                    <textarea
+                                        class="form-control"
+                                        id="description"
+                                        value={cat.description}
+                                        onChange={handleChange}
+                                    ></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" class="btn btn-primary" onClick={handleEdit}>
                                 Save
                             </button>
                             <button
@@ -79,4 +114,4 @@ function CatModal() {
     );
 }
 
-export default CatModal;
+export default EditModal;
